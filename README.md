@@ -1,5 +1,6 @@
 # EEG Data Processing
-This project involves the processing and analysis of EEG data acquired during DBS experiments
+
+This project involves the processing and analysis of EEG data acquired during DBS experiments.
 
 ## Data Processing Overview
 All data processing functions were implemented using Python, leveraging the following packages:
@@ -25,3 +26,16 @@ All data processing functions were implemented using Python, leveraging the foll
 ### Beta Power Extraction and Normalization
 - **Beta Power Extraction**: Beta power (13-32Hz) was extracted per channel per epoch using Welch's method for spectral density estimation.
 - **Normalization**: The extracted beta power was normalized per epoch by dividing it by the total power between 0-300Hz.
+
+## Statistical Analysis
+
+All statistical analyses were conducted using Python, employing the following packages:
+- **pandas**, **statsmodels**, **JMP**, **FINN**
+
+### Data Frame Construction
+- **Data Organization**: A data frame was created for each electrode, containing relevant variables such as power, movement, stimulation, clinical score, patient ID, and file ID.
+- **Dynamic Loading**: Channels identified as noisy were excluded from the data frame during analysis.
+
+### Statistical Modeling and Analysis
+- **ANOVA Modeling**: A 3-way ANOVA was performed to analyze the effects of movement, stimulation, and clinical score on beta power.
+- **Topoplot Visualization**: The mean normalized beta power for each electrode was visualized as a topoplot, with significance values adjusted for multiple comparisons using a threshold of α = 0.01.
